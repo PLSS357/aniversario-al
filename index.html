@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101122">
+  <meta name="description" content="Uma investigação altamente duvidosa sobre 11 anos de amizade. Três desafios, um presente e um certificado oficialíssimo.">
+  <title>Operação Pessoa Suportável — Presente de Aniversário</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101122;
+      --panel: #1b1c31;
+      --panel2: #22243c;
+      --ink: #f9f4f3;
+      --sub: #bcb7cb;
+      --muted: #8e8aa5;
+      --peach: #ffb0a4;
+      --rose: #ff7797;
+      --gold: #ffdb9a;
+      --purple: #beaaff;
+      --green: #adedd0;
+      --line: rgba(255,255,255,.13);
+      --shadow: 0 28px 100px rgba(0,0,0,.32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100dvh; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .backdrop { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; background: radial-gradient(ellipse 75% 48% at 85% 0%, #39274470 0%, transparent 76%), radial-gradient(ellipse 60% 48% at 0% 88%, #272f6677 0%, transparent 76%), #101122; }
+    .backdrop:after { content: ''; position: absolute; inset: 0; opacity: .16; background-image: radial-gradient(#ffffff 0.6px, transparent 0.6px); background-size: 21px 21px; }
+    .orb { position: absolute; width: 290px; height: 290px; border-radius: 100%; filter: blur(72px); opacity: .18; background: #e385a7; right: -180px; top: 25%; }
+    .orb.second { background: #8477f0; right: auto; top: auto; left: -160px; bottom: 3%; }
+    .shell { width: min(100% - 34px, 790px); margin: 0 auto; padding: clamp(20px, 4vw, 50px) 0 32px; }
+    .masthead { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 26px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 860; letter-spacing: .045em; font-size: 12px; line-height: 1.35; text-transform: uppercase; }
+    .brand-icon { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; border: 1px solid #ffc4b2a6; background: #ffa6a719; border-radius: 12px; font-size: 21px; transform: rotate(-7deg); }
+    .version { font-size: 10px; color: var(--muted); letter-spacing: .11em; text-align: right; text-transform: uppercase; }
+    .hero { text-align: center; margin-bottom: 23px; }
+    .pill { display: inline-flex; gap: 9px; align-items: center; padding: 8px 13px; border: 1px solid #f7a5ac70; border-radius: 99px; background: #ee95a512; text-transform: uppercase; color: var(--peach); font-weight: 800; font-size: 10px; letter-spacing: .16em; }
+    .pill .dot { width: 6px; height: 6px; background: var(--rose); border-radius: 99px; box-shadow: 0 0 13px var(--rose); }
+    h1 { font-size: clamp(36px, 6.8vw, 66px); letter-spacing: -.064em; line-height: 1.03; margin: 16px 0 12px; font-weight: 850; }
+    h1 span { display: block; background: linear-gradient(95deg, #ffe0b7 20%, #ff9c9d 50%, #c5a8ff 88%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .tagline { color: var(--sub); line-height: 1.65; font-size: clamp(13px, 2.4vw, 15px); margin: 0 auto; max-width: 530px; }
+    .console { background: linear-gradient(142deg, #22233b, #1a1b2d 64%); border: 1px solid #ffffff2b; box-shadow: var(--shadow); border-radius: 22px; position: relative; overflow: hidden; }
+    .console:before, .console:after { content: ''; height: 1px; width: 100px; position: absolute; background: linear-gradient(90deg, transparent, #fff6, transparent); pointer-events:none; }
+    .console:before { top: 0; left: 10%; } .console:after { bottom: 0; right: 6%; }
+    .console-bar { padding: 16px clamp(17px, 4vw, 29px); border-bottom: 1px solid var(--line); display: flex; align-items:center; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 11px; font-weight: 780; letter-spacing: .1em; text-transform: uppercase; }
+    .status { display: inline-flex; align-items: center; gap: 7px; color: var(--green); white-space:nowrap; letter-spacing: .07em; }
+    .status-dot { width: 6px; height:6px; background: var(--green); border-radius:50%; }
+    .content { padding: clamp(23px, 5vw, 44px); min-height: 382px; }
+    .entry-stamp { color: var(--purple); font-size: 11px; font-weight: 830; letter-spacing: .17em; text-transform: uppercase; }
+    h2 { font-size: clamp(27px, 4.8vw, 39px); letter-spacing: -.05em; line-height: 1.11; margin: 12px 0 13px; }
+    .lead { font-size: 15px; line-height: 1.72; color: var(--sub); margin: 0; max-width: 605px; }
+    .facts { display: flex; gap: 10px; flex-wrap: wrap; margin: 25px 0; }
+    .fact { background: #ffffff09; border: 1px solid var(--line); border-radius: 11px; padding: 11px 14px; display:flex; flex-direction:column; gap:3px; min-width: 122px; }
+    .fact strong { font-size: 20px; color: var(--ink); } .fact small { text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: var(--muted); font-size: 10px; }
+    .form-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items:end; gap: 11px; margin-top: 24px; }
+    label.field { display: block; font-size: 12px; color: var(--sub); font-weight: 800; }
+    .field input, .field textarea { display: block; width: 100%; padding: 14px 14px; border: 1px solid #fff3; background: #121424; color: var(--ink); border-radius: 10px; margin-top: 9px; font-size: 15px; outline: none; min-height: 50px; }
+    .field input::placeholder, .field textarea::placeholder { color: #918da3; }
+    .field textarea { resize: vertical; min-height: 76px; line-height: 1.5; }
+    .primary { appearance:none; border: none; background: linear-gradient(95deg, #ffd1a8, #ffaab3); color: #322333; font-size: 14px; font-weight: 875; border-radius: 12px; padding: 16px 21px; min-height: 50px; box-shadow: 0 8px 22px #ff9fa420; transition: transform .16s, filter .16s; }
+    .primary:hover { filter: brightness(1.075); transform: translateY(-2px); }
+    .primary:active { transform: translateY(1px); }
+    .secondary { border: 1px solid #ffffff44; background: #ffffff0b; color: var(--ink); font-weight: 800; border-radius: 12px; padding: 13px 18px; min-height: 49px; font-size: 13px; }
+    .secondary:hover { background: #ffffff18; }
+    .primary:disabled, .secondary:disabled { opacity: .45; cursor: not-allowed; }
+    .note { color: var(--muted); font-size: 11px; line-height:1.65; margin: 14px 0 0; }
+    .tiny { font-size: 11px; color: var(--muted); }
+    .steps { display: flex; align-items: center; gap: 9px; margin: 0 0 26px; }
+    .stepbar { height: 5px; background: #ffffff19; border-radius: 9px; flex:1; overflow: hidden; }
+    .stepbar > span { display:block; width:0; height:100%; background: linear-gradient(90deg,var(--rose),var(--gold)); transition: width .5s; }
+    .step-label { color: var(--muted); font-size: 11px; font-weight: 800; white-space:nowrap; }
+    .stage-top { display:flex; align-items: center; justify-content:space-between; gap:8px; margin-bottom: 8px; }
+    .stage-number { font-weight: 800; font-size: 11px; letter-spacing: .15em; color: var(--purple); text-transform: uppercase; }
+    .stage-score { font-size: 11px; color: var(--gold); font-weight: 800; }
+    .memory { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; margin: 27px 0 15px; }
+    .memory-card { border: 1px solid #ffffff24; border-radius: 14px; min-height: 108px; aspect-ratio: 1.48; max-height: 150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; background: linear-gradient(155deg, #2d2f50, #20223a); color: var(--ink); font-weight: 750; font-size: 10px; box-shadow: inset 0 1px #ffffff10; transition: transform .16s, border-color .16s, background .2s; position:relative; }
+    .memory-card:hover:not(:disabled) { transform: translateY(-2px); border-color: #ffc2b980; }
+    .memory-card .front-mark { font-size: 32px; color: #c4a7e0; opacity: .75; font-weight: 500; }
+    .memory-card .emoji { font-size: 35px; line-height:1.1; }
+    .memory-card.revealed { background: linear-gradient(155deg, #423a54, #362b43); border-color: #d9aee177; }
+    .memory-card.matched { background: #17392e; border-color:#83e4bd80; }
+    .memory-card:disabled { cursor: default; }
+    .game-foot { margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.55; min-height: 20px; }
+    .success { border: 1px solid #b3eac761; background:#94ffbb0b; padding: 15px; border-radius: 12px; margin-top: 19px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; animation: pop-in .35s ease-out; }
+    .success strong { display:block; font-size: 14px; color: var(--green); }
+    .success p { margin:4px 0 0; font-size: 12px; color:var(--sub); }
+    .arena { height: min(38vh, 265px); min-height: 230px; border: 1px dashed #ffffff48; border-radius: 14px; background: radial-gradient(circle at 22% 30%, #54365930, transparent 28%), radial-gradient(circle at 75% 75%, #5450a21f, transparent 28%), #111426; margin-top: 27px; position: relative; overflow: hidden; }
+    .arena:before { content: 'ÁREA DE APREENSÃO'; position:absolute; left:12px; top:12px; font-size: 9px; letter-spacing:.16em; color: #898aa9; pointer-events:none; }
+    .catch-button { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width: 123px; height: 80px; border-radius: 15px; background: linear-gradient(145deg, #ffd3b5, #ff9cae); border: 2px solid #ffe6d6; color: #38253c; display:grid; place-items:center; align-content:center; gap:3px; box-shadow:0 9px 23px #ff9fad35; font-size: 12px; font-weight: 900; letter-spacing:.03em; touch-action:manipulation; transition: left .14s, top .14s, filter .15s; }
+    .catch-button b { font-size: 27px; }
+    .catch-button:hover { filter: brightness(1.05); }
+    .capture-row { display:flex; align-items:center; justify-content:space-between; margin-top:13px; gap:14px; }
+    .capture-dots { display:flex; gap:8px; }
+    .capture-dot { width:20px; height:8px; border-radius:5px; background:#ffffff26; }
+    .capture-dot.filled { background:var(--peach); }
+    .capture-number { font-size:12px; color:var(--sub); font-weight:800; }
+    .slotbox { margin-top:25px; background:#101325; border:1px solid #ffffff28; border-radius: 14px; padding:18px; }
+    .slot-title { font-size:10px; text-transform:uppercase; letter-spacing:.13em; color:var(--muted); font-weight:900; margin-bottom:12px; }
+    .chosen { display:flex; flex-wrap:wrap; gap:8px; min-height:55px; align-items:center; }
+    .placeholder { font-size:13px; color:#9690aa; font-style:italic; }
+    .piece { background:#343351; color:#ffebd8; border:1px solid #9c8aad68; border-radius:10px; padding:13px 13px; font-size:13px; font-weight:750; text-align:left; min-height:44px; transition:background .14s,transform .14s; }
+    .piece:not(:disabled):hover { transform:translateY(-2px); background:#454063; }
+    .piece:disabled { opacity: .27; }
+    .chosen-piece { background:#f9d4c0; color:#372839; border-color:transparent; }
+    .choice-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:17px; }
+    .puzzle-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .error-text { margin-top:14px; color:#ffb1b5; font-size:12px; font-weight:750; min-height:18px; }
+    .paper-wrap { margin: 22px 0; }
+    .certificate { background:#fff9ed; color:#3d3442; padding:clamp(17px, 4vw, 35px); border: 2px solid #e5cb94; border-radius: 8px; position:relative; box-shadow:0 18px 35px #0002; overflow:hidden; }
+    .certificate:before { content:''; position:absolute; inset:8px; border:1px solid #b9a4779f; pointer-events:none; }
+    .certificate:after { content:'★'; position:absolute; font-size:190px; line-height:1; right:-25px; top:11px; color:#eeddbb; opacity:.28; pointer-events:none; transform:rotate(-14deg); }
+    .cert-inner { position:relative; z-index:1; border:1px solid #d9c7aa; padding: clamp(13px,3vw,27px); text-align:center; }
+    .cert-ministry { letter-spacing:.15em; font-size:clamp(8px,1.7vw,10px); text-transform:uppercase; color:#806c5e; font-weight:900; }
+    .cert-sigil { width:52px; height:52px; border-radius:50%; border:2px solid #b28c55; margin:16px auto 10px; display:grid; place-items:center; font-size:24px; }
+    .cert-heading { margin:0; font-family:Georgia,'Times New Roman',serif; font-weight: 700; text-transform:uppercase; font-size:clamp(21px,4vw,34px); letter-spacing:-.015em; line-height:1.1; color:#583c50; }
+    .cert-minor { color:#7e6b68; font-size:clamp(10px,2vw,12px); line-height:1.5; margin:12px auto; max-width:490px; }
+    .recipient { font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:clamp(28px,5.3vw,45px); font-weight:700; color:#ad5b75; line-height:1.08; word-break:break-word; margin:14px 0 5px; }
+    .cert-titleline { display:inline-block; border-top:1px solid #c8ad85; border-bottom:1px solid #c8ad85; font-weight:900; font-size:clamp(9px,1.9vw,12px); text-transform:uppercase; letter-spacing:.08em; padding:10px 9px; line-height:1.5; max-width:470px; }
+    .cert-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; text-align:left; border-top:1px solid #e4d6c0; margin-top:23px; }
+    .cert-attr { padding:12px 11px; border-bottom:1px solid #e4d6c0; }
+    .cert-attr:nth-child(odd) { border-right:1px solid #e4d6c0; }
+    .cert-attr span { display:block; color:#8b766d; font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; }
+    .cert-attr strong { font-size:clamp(11px,2.1vw,14px); font-weight:800; line-height:1.35; }
+    .cert-bottom { display:flex; justify-content:space-between; align-items:flex-end; text-align:left; gap:10px; margin-top:23px; }
+    .cert-sign { color:#6f625e; font-size:10px; line-height:1.55; max-width:55%; }
+    .cert-sign b { display:block; font-family:Georgia,serif; font-style:italic; font-weight:700; font-size:19px; color:#573f52; overflow-wrap:anywhere; }
+    .cert-seal { border:3px double #b46877; color:#a95b70; padding:9px 11px; border-radius:50%; font-size:10px; text-transform:uppercase; font-weight:1000; letter-spacing:.05em; line-height:1.2; transform:rotate(-12deg); text-align:center; }
+    .finish-intro { text-align:center; }
+    .finish-intro h2 { margin: 12px 0; }
+    .finish-emoji { font-size:48px; margin: 8px 0; display:block; }
+    .letter { text-align:left; background:linear-gradient(150deg, #342b44, #292940); border:1px solid #e0a5be56; padding:clamp(19px,4vw,29px); border-radius:16px; margin-top:24px; }
+    .letter-label { text-transform: uppercase; color:var(--peach); font-size:11px; font-weight:850; letter-spacing:.14em; }
+    .letter p { color:#f2e4ea; font-size:clamp(14px,2.3vw,16px); line-height:1.82; margin:14px 0 0; }
+    .letter .final-line { font-weight:900; color:#ffced0; font-size:clamp(17px,2.7vw,21px); line-height:1.52; margin-top:20px; }
+    .extra-note { border-left:3px solid var(--peach); padding-left:12px; overflow-wrap:anywhere; }
+    .cert-actions { display:flex; gap:9px; flex-wrap:wrap; justify-content:center; margin:17px auto 0; }
+    .final-note { text-align:center; color:var(--muted); font-size:11px; margin-top: 10px; }
+    footer { padding:22px 0 10px; text-align:center; color:var(--muted); font-size:10px; letter-spacing:.03em; line-height:1.7; }
+    footer strong { color:#dfb6c8; }
+    .builder { margin-top: 14px; border-top:1px solid var(--line); padding-top:13px; }
+    .builder summary { cursor:pointer; list-style:none; color:#c5b8df; font-size:12px; font-weight:750; padding:8px 0; }
+    .builder summary::-webkit-details-marker { display:none; }
+    .builder summary:before { content:'✎'; margin-right:8px; }
+    .builder-inside { background:#121426; border:1px solid #fff2; border-radius:13px; padding:17px; margin-top:10px; }
+    .builder-inside p { color:var(--sub); line-height:1.55; font-size:12px; margin:0 0 14px; }
+    .builder-fields { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .builder .field { margin-bottom: 12px; }
+    .builder-result { color:var(--green); overflow-wrap:anywhere; font-size:12px; line-height:1.5; padding:10px 0; min-height: 16px; }
+    .builder-result a {color:#ffe3bf}
+    .confetti { pointer-events:none; position:fixed; top:-20px; z-index:999; width:10px; height:16px; border-radius:2px; animation:fall linear forwards; }
+    @keyframes fall { 0% { transform:translate3d(0,-20px,0) rotate(0); opacity:1; } 100% { transform:translate3d(var(--drift),110vh,0) rotate(var(--twist)); opacity:0; } }
+    @keyframes pop-in { 0% { opacity:0; transform:translateY(8px); } 100% { opacity:1; transform:translateY(0); } }
+    .hidden { display:none !important; }
+    .screen { animation:pop-in .25s ease-out; }
+    @media (min-width:720px) { .shell { padding-top: 40px; } }
+    @media (max-width:520px) {
+      .shell { width:calc(100% - 22px); }
+      .masthead { margin-bottom:21px; }
+      .brand-icon { flex-basis:36px; width:36px; height:36px; }
+      .brand { font-size:10px; }
+      .version { font-size:9px; }
+      .console { border-radius:18px; }
+      .console-bar { font-size:9px; padding:13px 14px; }
+      .content { padding:23px 16px; }
+      .form-row { grid-template-columns:1fr; }
+      .form-row .primary { width:100%; }
+      .memory { gap:7px; }
+      .memory-card { min-height:99px; aspect-ratio:1.1; }
+      .cert-inner { padding:14px 9px; }
+      .cert-grid { margin-top:17px; }
+      .cert-attr { padding:9px 7px; }
+      .cert-sign b { font-size:15px; }
+      .cert-seal { font-size:8px; padding:8px 6px; }
+      .builder-fields { grid-template-columns:1fr; gap:0; }
+    }
+    @media (max-width:370px) {
+      .choice-grid { grid-template-columns:1fr; }
+      .cert-grid { grid-template-columns:1fr; }
+      .cert-attr:nth-child(odd) { border-right:0; }
+      .cert-sign {font-size:9px;}
+    }
+    @media (prefers-reduced-motion:reduce) { *,*:before,*:after { animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important; } }
+    @page { size: landscape; margin: 12mm; }
+    @media print {
+      html,body { background:#fff !important; color:#333 !important; margin:0 !important; padding:0 !important; }
+      body * { visibility:hidden !important; }
+      #certificate, #certificate * { visibility:visible !important; }
+      #certificate { position:absolute !important; inset:0 auto auto 0 !important; width:100% !important; margin:0 !important; box-shadow:none !important; break-inside:avoid !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"><div class="orb"></div><div class="orb second"></div></div>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand"><div class="brand-icon" aria-hidden="true">✳</div><div>MINISTÉRIO DAS<br>AMIZADES QUESTIONÁVEIS</div></div>
+      <div class="version">SISTEMA 11.0<br>SETOR DE ANIVERSÁRIOS</div>
+    </header>
+    <section class="hero" aria-label="Operação Pessoa Suportável">
+      <div class="pill"><span class="dot"></span> Protocolo ultrassecreto Nº 0011</div>
+      <h1>Operação:<span>Pessoa Suportável.</span></h1>
+      <p class="tagline">Um experimento de altíssimo rigor científico. Nenhuma instituição respeitável aprova este procedimento.</p>
+    </section>
+    <section class="console">
+      <div class="console-bar"><span id="terminalTitle">Dossiê de amizade // aguardando</span><span class="status"><span class="status-dot"></span><span id="terminalStatus">Sistema ativo</span></span></div>
+      <div id="screen" class="content screen" aria-live="polite"></div>
+    </section>
+    <footer>DESENVOLVIDO PELO <strong>DEPARTAMENTO DE SENTIMENTOS NEGADOS</strong><br>© 11 ANOS DE DADOS EXTREMAMENTE COMPROMETEDORES</footer>
+  </main>
+  <script>
+    (() => {
+      'use strict';
+      const $ = s => document.querySelector(s);
+      const qs = new URLSearchParams(location.search);
+      const clean = (v, max=60) => String(v||'').replace(/[\u0000-\u001f\u007f]/g,'').trim().slice(0,max);
+      const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      const config = { name:clean(qs.get('para') || '', 48), from:clean(qs.get('de') || '',48) || 'Seu amigo de longa data', note:clean(qs.get('recado') || '',240) };
+      let step = 0, matches = 0, flipped = [], busy = false, cards = [], catches=0, order=[];
+      const fragments = ['Há 11 anos,','você deixa','minha vida mais caótica','e muito melhor.'];
+      const E = escapeHtml;
+      const screen = $('#screen');
+      const nextScreen = html => { screen.classList.remove('screen'); screen.innerHTML=html; void screen.offsetWidth; screen.classList.add('screen'); window.scrollTo({top:0,behavior:'smooth'}); };
+      const setTerminal = (text,status) => { $('#terminalTitle').textContent=text; $('#terminalStatus').textContent=status; };
+      const progress = num => `<div class="steps"><span class="step-label">MISSÃO ${num} / 3</span><div class="stepbar"><span style="width:${((num-1)/3)*100}%"></span></div><span class="step-label">${num-1} CONCLUÍDA${num===2?'':'S'}</span></div>`;
+      const success = (heading, sub, buttonLabel, fn) => {
+        const box=document.createElement('div'); box.className='success'; box.innerHTML=`<div><strong>✓ ${E(heading)}</strong><p>${E(sub)}</p></div><button class="primary" type="button">${E(buttonLabel)} →</button>`;
+        screen.appendChild(box); box.querySelector('button').addEventListener('click',fn); box.querySelector('button').focus({preventScroll:true});
+      };
+      const soundFeedback = ()=>{};
+      function intro() {
+        setTerminal('Dossiê de amizade // aguardando','Sistema ativo'); step=0;
+        nextScreen(`
+          <div class="entry-stamp">⚑ CONVOCAÇÃO OBRIGATÓRIA</div>
+          <h2>11 anos de amizade.<br>Zero reembolsos.</h2>
+          <p class="lead">Após 11 anos de convivência, o Ministério finalmente decidiu investigar por que você continua sendo uma pessoa tão importante. Para liberar seu presente de aniversário, será necessário concluir <strong style="color:var(--ink)">3 desafios extremamente sérios</strong>. Ou quase.</p>
+          <div class="facts"><div class="fact"><strong>11</strong><small>anos sob análise</small></div><div class="fact"><strong>03</strong><small>testes suspeitos</small></div><div class="fact"><strong>01</strong><small>presente secreto</small></div></div>
+          <form id="startForm" class="form-row"><label class="field">Nome da aniversariante (opcional)<input id="friendName" type="text" maxlength="48" autocomplete="off" placeholder="Pessoa suspeitamente especial" value="${E(config.name)}"></label><button class="primary" type="submit">Iniciar investigação →</button></form>
+          <p class="note">Tempo médio: 1 a 2 minutos. Dificuldade: menor do que me aguentar por 11 anos.</p>
+          <details class="builder" id="builder"><summary>Quer preparar e compartilhar um link personalizado?</summary>
+             <div class="builder-inside"><p>Depois de publicar este arquivo em um site, preencha os dados abaixo e copie o link personalizado para a aniversariante. Os nomes e o bilhete aparecem só no presente dela.</p>
+             <div class="builder-fields"><label class="field">Nome dela<input id="buildName" maxlength="48" placeholder="Nome da amiga" value="${E(config.name)}"></label><label class="field">Sua assinatura<input id="buildFrom" maxlength="48" placeholder="Seu nome" value="${E(config.from==='Seu amigo de longa data'?'':config.from)}"></label></div>
+             <label class="field">Bilhete adicional (opcional)<textarea id="buildNote" maxlength="240" rows="2" placeholder="Uma piada interna ou lembrança só de vocês...">${E(config.note)}</textarea></label>
+             <button type="button" id="linkBtn" class="secondary">Copiar link personalizado ↗</button>
+             <div id="linkStatus" class="builder-result" role="status"></div></div>
+          </details>`);
+        $('#startForm').addEventListener('submit', e=>{ e.preventDefault(); config.name=clean($('#friendName').value,48)||'Você'; game1(); });
+        $('#linkBtn').addEventListener('click', buildLink);
+        if (qs.has('montar')) $('#builder').open=true;
+      }
+      async function buildLink() {
+        const name=clean($('#buildName').value,48), from=clean($('#buildFrom').value,48), note=clean($('#buildNote').value,240);
+        const u = new URL(location.href); u.search=''; u.hash='';
+        if(name)u.searchParams.set('para',name); if(from)u.searchParams.set('de',from); if(note)u.searchParams.set('recado',note);
+        const display=$('#linkStatus');
+        if(u.protocol==='file:') { display.innerHTML='Primeiro publique o arquivo em um site. Em seguida, abra o endereço público e use esta opção para gerar o link.'; return; }
+        try { await navigator.clipboard.writeText(u.href); display.textContent='✓ Link copiado. Agora é só enviar para ela!'; }
+        catch { display.replaceChildren(document.createTextNode('Copie seu link aqui: ')); const inp=document.createElement('input');inp.value=u.href;inp.readOnly=true;inp.style.cssText='width:100%;padding:9px;margin-top:8px;color:white;background:#29293d;border:1px solid #fff5;border-radius:7px'; display.appendChild(inp); inp.focus(); inp.select(); }
+      }
+      function shuffle(a) { const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; }
+      function game1() {
+        step=1; matches=0; flipped=[];busy=false;
+        setTerminal('Teste 01 // memória afetiva','Em avaliação');
+        nextScreen(`${progress(1)}<div class="stage-top"><span class="stage-number">DESAFIO 01 / 03</span><span class="stage-score" id="matchScore">0 de 3 pares</span></div><h2>Memória seletiva.</h2><p class="lead">Encontre os <strong style="color:white">3 pares escondidos</strong>. Uma pesquisa mostrou que, depois de 11 anos, você deveria conseguir lembrar pelo menos de três coisas. A pesquisa fui eu que inventei.</p><div class="memory" id="memory"></div><div class="game-foot" id="memoryHint">Vire duas cartas por vez. Spoiler: todas têm a ver com esta amizade duvidosa.</div>`);
+        const source=[{id:'chaos',emoji:'💥',label:'Caos'},{id:'coffee',emoji:'☕',label:'Conversas'},{id:'heart',emoji:'💗',label:'Carinho'}];
+        cards=shuffle([...source,...source]).map((x,index)=>({...x,instance:index,up:false,matched:false}));
+        const grid=$('#memory');
+        cards.forEach((c,i)=>{ const el=document.createElement('button'); el.className='memory-card';el.type='button';el.dataset.idx=i;el.setAttribute('aria-label',`Carta escondida, posição ${i+1}`); el.innerHTML='<span class="front-mark">✳</span>';el.addEventListener('click',()=>flip(i));grid.appendChild(el); });
+      }
+      function drawCard(i) {
+        const c=cards[i], b=$(`#memory [data-idx="${i}"]`);if(!b)return;
+        b.classList.toggle('revealed',c.up);b.classList.toggle('matched',c.matched); b.disabled=c.matched;
+        b.innerHTML=c.up||c.matched?`<span class="emoji">${c.emoji}</span><span>${E(c.label)}</span>`:'<span class="front-mark">✳</span>';
+        b.setAttribute('aria-label',c.up||c.matched?`${c.label}${c.matched?', par encontrado':''}`:`Carta escondida, posição ${i+1}`);
+      }
+      function flip(i) {
+        if(busy || cards[i].up || cards[i].matched || step!==1)return;
+        cards[i].up=true; drawCard(i); flipped.push(i);
+        if(flipped.length===2){
+          busy=true; const [a,b]=flipped;
+          if(cards[a].id===cards[b].id){
+            cards[a].matched=cards[b].matched=true; matches++; $('#matchScore').textContent=`${matches} de 3 pares`;
+            $('#memoryHint').textContent=['Um par! A ciência está preocupada.','Dois pares! Isso já é suspeito.','Três pares! O Ministério foi humilhado.'][matches-1];
+            setTimeout(()=>{if(step!==1)return; drawCard(a);drawCard(b);flipped=[];busy=false; if(matches===3){$('#memory').querySelectorAll('button').forEach(el=>el.disabled=true);success('MEMÓRIA APROVADA','Você sabe lembrar. O Ministério perdeu uma aposta.','Próximo teste',game2);}},360);
+          } else {
+            $('#memoryHint').textContent='Combinação rejeitada. Culpa do sistema, obviamente.';
+            setTimeout(()=>{if(step!==1)return; cards[a].up=cards[b].up=false;drawCard(a);drawCard(b);flipped=[];busy=false;},800);
+          }
+        }
+      }
+      function game2() {
+        step=2;catches=0;
+        setTerminal('Teste 02 // reflexos emocionais','Alvo em fuga');
+        nextScreen(`${progress(2)}<div class="stage-top"><span class="stage-number">DESAFIO 02 / 03</span><span class="stage-score">NÍVEL: RIDÍCULO</span></div><h2>Capture o afeto.</h2><p class="lead">Um selo contendo sentimentos sinceros fugiu do departamento. <strong style="color:white">Capture o selo 5 vezes</strong> antes que ele negue a existência das próprias emoções.</p><div class="arena" id="arena"><button class="catch-button" id="catch" type="button" aria-label="Capturar selo"><b aria-hidden="true">💌</b>PEGAR SELO</button></div><div class="capture-row"><div class="capture-dots" id="catchDots">${'<div class="capture-dot"></div>'.repeat(5)}</div><span class="capture-number" id="catchScore">0 / 5 apreensões</span></div><div class="game-foot" id="catchHint">Por motivos legais, o selo não pode sair da caixa.</div>`);
+        $('#catch').addEventListener('click',capture);
+      }
+      function moveTarget(){
+        const arena=$('#arena'), b=$('#catch');if(!arena || !b)return;
+        const x=12+Math.random()*Math.max(0,arena.clientWidth-b.offsetWidth-24);
+        const y=27+Math.random()*Math.max(0,arena.clientHeight-b.offsetHeight-39);
+        b.style.left=x+'px';b.style.top=y+'px';b.style.transform='none';
+      }
+      function capture(){
+        if(step!==2 || catches>=5)return;
+        catches++;
+        $('#catchScore').textContent=`${catches} / 5 apreensões`;
+        [...$('#catchDots').children].forEach((el,i)=>el.classList.toggle('filled',i<catches));
+        $('#catchHint').textContent=['Um! O selo pediu advogado.','Dois! Alegou falta de provas.','Três! Começou a entrar em pânico.','Quatro! O carinho está quase escapando.','Cinco! O selo confessou tudo.'][catches-1];
+        if(catches<5) moveTarget();
+        else { $('#catch').disabled=true; $('#catch').style.opacity='.55'; $('#catch').innerHTML='<b>🔒</b>CAPTURADO';success('SELO RECUPERADO','Foi impossível esconder o carinho. Embaraçoso.','Último teste',game3); }
+      }
+      function game3(){
+        step=3;order=[];
+        setTerminal('Teste 03 // mensagem censurada','Descriptografando');
+        nextScreen(`${progress(3)}<div class="stage-top"><span class="stage-number">DESAFIO 03 / 03</span><span class="stage-score">SIGILO EM RISCO</span></div><h2>Sentimento criptografado.</h2><p class="lead">O sistema partiu uma frase vergonhosamente sincera em quatro pedaços. <strong style="color:white">Toque nos trechos na ordem correta</strong> para reconstruí-la. Não conte a ninguém que temos sentimentos.</p><div class="slotbox"><div class="slot-title">FRASE EM RECUPERAÇÃO</div><div class="chosen" id="chosen"><span class="placeholder">Sua frase aparecerá aqui…</span></div></div><div class="choice-grid" id="choices"></div><div class="puzzle-actions"><button type="button" class="primary" id="verify" disabled>Verificar frase →</button><button type="button" class="secondary" id="undo">Desfazer última</button><button type="button" class="secondary" id="reset">Recomeçar</button></div><div class="error-text" id="error" role="status"></div>`);
+        // Garante que os pedaços não apareçam já em sequência.
+        let scrambled=shuffle([0,1,2,3]); if(scrambled.every((x,i)=>x===i))scrambled=[2,0,3,1];
+        const choices=$('#choices');scrambled.forEach(i=>{let b=document.createElement('button');b.type='button';b.className='piece';b.dataset.id=i;b.textContent=fragments[i];b.addEventListener('click',()=>choose(i));choices.appendChild(b);});
+        $('#verify').addEventListener('click',verify);
+        $('#undo').addEventListener('click',()=>{if(order.length){order.pop();renderPuzzle();}});
+        $('#reset').addEventListener('click',()=>{order=[];renderPuzzle();});
+        renderPuzzle();
+      }
+      function choose(i){ if(step!==3 || order.includes(i) || order.length===4)return;order.push(i);renderPuzzle(); }
+      function renderPuzzle(){
+        const chosen=$('#chosen'); if(!chosen || step!==3)return;
+        chosen.innerHTML=order.length ? order.map(i=>`<span class="piece chosen-piece">${E(fragments[i])}</span>`).join(' '):'<span class="placeholder">Sua frase aparecerá aqui…</span>';
+        $$('#choices .piece').forEach(el=>el.disabled=order.includes(Number(el.dataset.id)));
+        $('#verify').disabled=order.length!==4;
+        $('#undo').disabled=order.length===0;
+        $('#reset').disabled=order.length===0;
+        $('#error').textContent='';
+      }
+      function $$(selector) { return [...document.querySelectorAll(selector)]; }
+      function verify(){
+        if(order.length!==4)return;
+        if(order.every((x,i)=>x===i)){
+          $('#error').textContent=''; $$('#choices button, #verify, #undo, #reset').forEach(b=>b.disabled=true);
+          success('FRASE DESCRIPTOGRAFADA','Infelizmente, a verdade foi descoberta. O presente está liberado.','Abrir presente',finish);
+        }else{ $('#error').textContent='Ordem incorreta. Dica do Ministério: comece pelos 11 anos de amizade.'; $('#chosen').animate?.([{transform:'translateX(0)'},{transform:'translateX(-5px)'},{transform:'translateX(5px)'},{transform:'translateX(0)'}],{duration:250}); }
+      }
+      function finish(){
+        step=4;setTerminal('Dossiê encerrado // presente liberado','Aprovada ✓');
+        const name=E(config.name||'Você'),from=E(config.from),note=config.note?`<p class="extra-note"><strong>PS de ${from}:</strong> ${E(config.note)}</p>`:'';
+        nextScreen(`<div class="finish-intro"><div class="pill"><span class="dot"></span> ACESSO AUTORIZADO</div><span class="finish-emoji" aria-hidden="true">🎁</span><h2>Feliz aniversário, ${name}!</h2><p class="lead" style="margin:auto">Parabéns. Você passou por uma quantidade desnecessária de burocracia para receber algo que eu poderia simplesmente ter enviado por mensagem. Mas onde estaria a graça?</p></div>
+          <div class="letter"><div class="letter-label">✦ Mensagem confidencial — somente para você</div>
+            <p>Eu poderia ter feito alguma coisa normal para o seu aniversário, mas isso exigiria maturidade. E, a esta altura, acho que nós dois já desistimos dessa possibilidade.</p>
+            <p>Onze anos é tempo demais para chamar essa amizade de coincidência. Foram muitas conversas, piadas internas, mudanças e momentos que fizeram você se tornar uma parte muito especial da minha vida. Mesmo quando eu implico com você (o que, convenhamos, já virou patrimônio histórico da nossa amizade), fico muito feliz de ter você por perto.</p>
+            <p>Espero que este novo ano te traga coisas incríveis, motivos de sobra para sorrir e mais histórias para a gente contar — ou esconder da sociedade. Obrigado por esses 11 anos. Quero muitos outros.</p>
+            ${note}
+            <p class="final-line">Brincadeiras à parte, minha vida seria consideravelmente pior sem você.</p>
+            <p style="text-align:right;font-weight:800">— ${from} ♡</p>
+          </div>
+          <div class="paper-wrap"><div class="certificate" id="certificate"><div class="cert-inner">
+             <div class="cert-ministry">República independente das amizades improváveis<br>Ministério das Amizades Questionáveis</div>
+             <div class="cert-sigil" aria-hidden="true">✳</div>
+             <h3 class="cert-heading">Certificado de<br>Pessoa Suportável</h3>
+             <p class="cert-minor">Após 11 anos de observação e sucessivas tentativas fracassadas de encontrar alguém melhor, este departamento certifica solenemente:</p>
+             <div class="recipient" id="certName">${name}</div>
+             <div class="cert-titleline">Indivíduo cuja existência eu considero tolerável</div>
+             <div class="cert-grid">
+               <div class="cert-attr"><span>Nível de importância</span><strong>11/10 · Assunto sigiloso</strong></div>
+               <div class="cert-attr"><span>Grau de irritação</span><strong>Alto · Estranhamente essencial</strong></div>
+               <div class="cert-attr"><span>Validade da amizade</span><strong>Vitalícia · Renovação automática</strong></div>
+               <div class="cert-attr"><span>Tempo de serviço</span><strong>11 anos · Sem devoluções</strong></div>
+             </div>
+             <div class="cert-bottom"><div class="cert-sign">Oficializado por:<b>${from}</b><span id="dateString"></span></div><div class="cert-seal">APROVADA<br>SOB<br>PROTESTO</div></div>
+          </div></div></div>
+          <div class="cert-actions"><button id="downloadPng" class="primary" type="button">↓ Baixar certificado (PNG)</button><button id="print" class="secondary" type="button">Salvar em PDF / imprimir</button></div>
+          <p class="final-note" id="downloadStatus">Certificado oficialmente válido em nenhuma repartição, mas válido no meu coração. Infelizmente.</p>`);
+        $('#dateString').textContent='Emitido em '+ new Date().toLocaleDateString('pt-BR');
+        $('#downloadPng').addEventListener('click',downloadCertificate);
+        $('#print').addEventListener('click',()=>window.print());
+        confetti(85);
+      }
+      function confetti(count){
+        if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+        const colors=['#ffc9aa','#ef82a6','#c3b0ff','#ffdf87','#b2e5c9'];
+        for(let i=0;i<count;i++){
+          const p=document.createElement('span');p.className='confetti';p.style.left=Math.random()*100+'vw';p.style.background=colors[i%colors.length];p.style.animationDuration=(2.5+Math.random()*2.7)+'s';p.style.animationDelay=(Math.random()*.8)+'s';p.style.setProperty('--drift',(Math.random()*260-130)+'px');p.style.setProperty('--twist',(Math.random()*1000-500)+'deg');p.style.width=(5+Math.random()*7)+'px';p.style.height=(8+Math.random()*13)+'px';document.body.appendChild(p);setTimeout(()=>p.remove(),6500);
+        }
+      }
+      const wrapText=(ctx,text,x,y,maxWidth,lineHeight)=>{let line='',rows=[];for(const word of text.split(/\s+/)){const t=line?line+' '+word:word;if(ctx.measureText(t).width>maxWidth && line){rows.push(line);line=word;}else line=t;} if(line)rows.push(line); rows.forEach((str,i)=>ctx.fillText(str,x,y+i*lineHeight));return y+rows.length*lineHeight;};
+      function downloadCertificate(){
+        const c=document.createElement('canvas');c.width=1400;c.height=1000;
+        const g=c.getContext('2d');if(!g){$('#downloadStatus').textContent='Seu navegador não permitiu gerar a imagem. Use a opção de imprimir/PDF.';return;}
+        g.fillStyle='#fff9ed';g.fillRect(0,0,1400,1000);
+        g.strokeStyle='#c9a66e';g.lineWidth=8;g.strokeRect(30,30,1340,940);g.lineWidth=2;g.strokeRect(50,50,1300,900);
+        g.textAlign='center';g.textBaseline='alphabetic';
+        g.fillStyle='#8f7462';g.font='bold 21px Arial,sans-serif';g.fillText('REPÚBLICA INDEPENDENTE DAS AMIZADES IMPROVÁVEIS',700,109);g.fillText('MINISTÉRIO DAS AMIZADES QUESTIONÁVEIS',700,142);
+        g.strokeStyle='#b8945f';g.lineWidth=3;g.beginPath();g.arc(700,209,38,0,Math.PI*2);g.stroke();g.fillStyle='#9b735c';g.font='bold 47px Georgia,serif';g.fillText('✳',700,226);
+        g.fillStyle='#59394f';g.font='bold 65px Georgia,serif';g.fillText('CERTIFICADO DE',700,309);g.fillText('PESSOA SUPORTÁVEL',700,379);
+        g.fillStyle='#806c65';g.font='24px Georgia,serif';g.fillText('Após 11 anos de observação, este departamento certifica solenemente:',700,435);
+        const name=clean(config.name || 'Você',48);let size=68;do{g.font=`italic bold ${size}px Georgia,serif`;if(g.measureText(name).width<=1150)break;size-=2;}while(size>31);
+        g.fillStyle='#ad5b75';g.fillText(name,700,526);
+        g.strokeStyle='#cfb892';g.lineWidth=2;g.beginPath();g.moveTo(260,564);g.lineTo(1140,564);g.moveTo(260,632);g.lineTo(1140,632);g.stroke();
+        g.fillStyle='#594455';g.font='bold 25px Arial,sans-serif';g.fillText('INDIVÍDUO CUJA EXISTÊNCIA EU CONSIDERO TOLERÁVEL',700,608);
+        g.strokeStyle='#e4d6c0';g.beginPath();g.moveTo(114,665);g.lineTo(1286,665);g.moveTo(700,665);g.lineTo(700,831);g.moveTo(114,748);g.lineTo(1286,748);g.moveTo(114,831);g.lineTo(1286,831);g.stroke();
+        const attrs=[['NÍVEL DE IMPORTÂNCIA','11/10 · Assunto sigiloso'],['GRAU DE IRRITAÇÃO','Alto · Estranhamente essencial'],['VALIDADE DA AMIZADE','Vitalícia · Renovação automática'],['TEMPO DE SERVIÇO','11 anos · Sem devoluções']];
+        attrs.forEach(([label,value],i)=>{const x=i%2===0?144:737,y=i<2?699:780;g.textAlign='left';g.font='bold 17px Arial,sans-serif';g.fillStyle='#8f7669';g.fillText(label,x,y);g.font='bold 24px Arial,sans-serif';g.fillStyle='#3f3542';g.fillText(value,x,y+30);});
+        g.fillStyle='#77645e';g.textAlign='left';g.font='17px Arial,sans-serif';g.fillText('OFICIALIZADO POR',130,885);g.font='italic bold 27px Georgia,serif';g.fillStyle='#59394f';g.fillText(clean(config.from,48),130,917);
+        g.textAlign='center';g.save();g.translate(1140,893);g.rotate(-.14);g.strokeStyle='#b46877';g.lineWidth=4;g.beginPath();g.ellipse(0,0,93,51,0,0,Math.PI*2);g.stroke();g.fillStyle='#a95b70';g.font='bold 18px Arial,sans-serif';g.fillText('APROVADA',0,-5);g.fillText('SOB PROTESTO',0,17);g.restore();
+        const a=document.createElement('a');a.download='certificado-pessoa-suportavel.png';
+        try {a.href=c.toDataURL('image/png');a.click();$('#downloadStatus').textContent='✓ Certificado gerado! Confira os downloads do seu aparelho.';}
+        catch{ $('#downloadStatus').textContent='Não foi possível gerar PNG neste navegador. Use a opção de imprimir/PDF.'; }
+      }
+      intro();
+    })();
+  </script>
+</body>
+</html>
